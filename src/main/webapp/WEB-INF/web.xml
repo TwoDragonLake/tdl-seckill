@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>miaosha</display-name>
+
+	<!-- 读取spring配置文件 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:conf/spring-context.xml</param-value>
+	</context-param>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	
+
+
+	<!-- Spring字符集过滤器 -->
+	<filter>
+		<filter-name>SpringEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>SpringEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- smvc分发器声明，此处分发器会使用spring的注入 -->
+	<servlet>
+		<servlet-name>smvc-dispatch</servlet-name>
+		<servlet-class>wang.moshu.smvc.framework.DispatchServlet</servlet-class>
+		<!-- 控制器扫描目录 -->
+		<init-param>
+			<param-name>scanPackage</param-name>
+			<param-value>wang.moshu</param-value>
+		</init-param>
+		<!-- 视图层目录前缀 -->
+		<init-param>
+			<param-name>viewPreffix</param-name>
+			<param-value>/WEB-INF/pages/</param-value>
+		</init-param>
+		<!-- 视图层后缀 -->
+		<init-param>
+			<param-name>viewSuffix</param-name>
+			<param-value>.jsp</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- smvc分发路径定义，建议接口控制器使用/i/*路由，页面使用/p/*路由 -->
+	<servlet-mapping>
+		<servlet-name>smvc-dispatch</servlet-name>
+		<url-pattern>/i/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>smvc-dispatch</servlet-name>
+		<url-pattern>/p/*</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+
+</web-app>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="wang.moshu.dao.GoodsMapper" >
+  <resultMap id="BaseResultMap" type="wang.moshu.model.Goods" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+     <result column="random_name" property="randomName" jdbcType="CHAR" />
+    <result column="store" property="store" jdbcType="INTEGER" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="del_flag" property="delFlag" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, random_name, start_time, end_time, store, version, del_flag
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByRandomName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+    where random_name = #{randomName,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from goods
+  </select>
+  <select id="selectStoreByPrimaryKey" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+    select store
+    from goods
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from goods
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="wang.moshu.model.Goods" >
+    insert into goods (id, name, store, 
+      version, del_flag)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{store,jdbcType=INTEGER}, 
+      #{version,jdbcType=INTEGER}, #{delFlag,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="wang.moshu.model.Goods" >
+    insert into goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="randomName != null" >
+        random_name,
+      </if>
+      <if test="store != null" >
+        store,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="randomName != null" >
+        #{randomName,jdbcType=CHAR},
+      </if>
+      <if test="store != null" >
+        #{store,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="wang.moshu.model.Goods" >
+    update goods
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="randomName != null" >
+        random_name = #{randomName,jdbcType=VARCHAR},
+      </if>
+      <if test="store != null" >
+        store = #{store,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="wang.moshu.model.Goods" >
+    update goods
+    set name = #{name,jdbcType=VARCHAR},
+      store = #{store,jdbcType=INTEGER},
+      version = #{version,jdbcType=INTEGER},
+      del_flag = #{delFlag,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <!-- 减库存 -->
+  <update id="reduceStore" >
+    update goods
+    set store = store - 1,
+    	version = version+1
+    where id = #{goodsId}
+      and store>0
+  </update>
+     <!--mybatis调用存储过程-->
+   <select id="doOrder" statementType="CALLABLE" parameterType="java.util.Map">
+       call pro_doorder(
+         #{goodsId,jdbcType=BIGINT,mode=IN},
+         #{mobile,jdbcType=VARCHAR,mode=IN},
+         #{orderTime,jdbcType=TIMESTAMP,mode=IN},
+         #{o_result,jdbcType=INTEGER,mode=OUT},
+         #{o_order_id,jdbcType=INTEGER,mode=OUT}
+         
+       )
+   </select>
+</mapper>

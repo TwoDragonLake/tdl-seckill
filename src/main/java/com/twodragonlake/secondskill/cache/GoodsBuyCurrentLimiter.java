@@ -10,7 +10,7 @@ import com.twodragonlake.secondskill.constant.CommonConstant;
 import com.twodragonlake.secondskill.constant.MessageType;
 import com.twodragonlake.secondskill.dao.GoodsMapper;
 
-import wang.moshu.message.MessageMonitor;
+import twodragonlake.messagetrunk.MessageMonitor;
 
 /**
  * 商品购买限流器

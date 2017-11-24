@@ -9,11 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.twodragonlake.secondskill.cache.UserBlackListCache;
+import com.twodragonlake.secondskill.common.exception.BusinessException;
+import com.twodragonlake.secondskill.common.interceptor.RequestInterceptor;
 import com.twodragonlake.secondskill.config.SystemConfig;
 import com.twodragonlake.secondskill.util.RedisUtil;
-
-import wang.moshu.smvc.framework.exception.BusinessException;
-import wang.moshu.smvc.framework.interceptor.RequestInterceptor;
 
 /**
  * 恶意用户检测拦截器

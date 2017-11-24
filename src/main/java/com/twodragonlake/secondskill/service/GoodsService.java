@@ -14,14 +14,14 @@ import com.twodragonlake.secondskill.cache.GoodsInfoCacheWorker;
 import com.twodragonlake.secondskill.cache.MiaoshaFinishCache;
 import com.twodragonlake.secondskill.cache.MiaoshaHandlingListCache;
 import com.twodragonlake.secondskill.cache.MiaoshaSuccessTokenCache;
+import com.twodragonlake.secondskill.common.exception.BusinessException;
 import com.twodragonlake.secondskill.constant.MessageType;
 import com.twodragonlake.secondskill.dao.GoodsMapper;
 import com.twodragonlake.secondskill.model.Goods;
 import com.twodragonlake.secondskill.mq.message.MiaoshaRequestMessage;
 
-import wang.moshu.message.Message;
-import wang.moshu.message.MessageTrunk;
-import wang.moshu.smvc.framework.exception.BusinessException;
+import twodragonlake.messagetrunk.Message;
+import twodragonlake.messagetrunk.MessageTrunk;
 
 @Service
 public class GoodsService

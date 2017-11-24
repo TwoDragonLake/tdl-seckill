@@ -28,7 +28,7 @@
 	</bean>
 
 	<!-- 配置消息总线redis工具 -->
- 	<bean id="redisUtilMT" class="wang.moshu.message.RedisUtil">
+ 	<bean id="redisUtilMT" class="twodragonlake.messagetrunk.RedisUtil">
 		<property name="maxTotal" value="${redis.mt.init.maxTotal}" />
 		<property name="maxIdle" value="${redis.mt.init.maxIdle}" />
 		<property name="minIdle" value="${redis.mt.init.minIdle}" />

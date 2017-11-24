@@ -2,16 +2,16 @@ package com.twodragonlake.secondskill.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.twodragonlake.secondskill.cache.MiaoshaSuccessTokenCache;
 import com.twodragonlake.secondskill.intercept.UserInterceptor;
 import com.twodragonlake.secondskill.service.GoodsService;
 
-import wang.moshu.smvc.framework.annotation.RequestMapping;
-import wang.moshu.smvc.framework.enums.ReturnType;
-import wang.moshu.smvc.framework.interceptor.annotation.Intercept;
-import wang.moshu.smvc.framework.util.Assert;
+import twodragonlake.twodragonlakemvc.framework.annotation.RequestMapping;
+import twodragonlake.twodragonlakemvc.framework.enums.ReturnType;
+import twodragonlake.twodragonlakemvc.framework.interceptor.annotation.Intercept;
 
 /**
  * 接口路由

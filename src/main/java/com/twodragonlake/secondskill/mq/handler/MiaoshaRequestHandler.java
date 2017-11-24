@@ -9,11 +9,11 @@ import com.twodragonlake.secondskill.cache.GoodsRedisStoreCache;
 import com.twodragonlake.secondskill.cache.MiaoshaFinishCache;
 import com.twodragonlake.secondskill.cache.MiaoshaSuccessTokenCache;
 import com.twodragonlake.secondskill.cache.UserBlackListCache;
-import com.twodragonlake.secondskill.common.exception.BusinessException;
 import com.twodragonlake.secondskill.constant.MessageType;
 import com.twodragonlake.secondskill.mq.message.MiaoshaRequestMessage;
 
 import twodragonlake.messagetrunk.AbstarctMessageHandler;
+import twodragonlake.twodragonlakemvc.framework.exception.BusinessException;
 
 /*******
  * DemoMessage消息的处理器**********

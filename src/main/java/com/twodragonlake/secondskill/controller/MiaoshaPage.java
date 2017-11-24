@@ -6,11 +6,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.twodragonlake.secondskill.model.Goods;
 import com.twodragonlake.secondskill.service.GoodsService;
-
-import wang.moshu.smvc.framework.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(value = "/p/")

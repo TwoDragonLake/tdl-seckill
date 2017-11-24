@@ -85,8 +85,11 @@
 			<version>1.7.5</version>
 		</dependency>
 
-		<!-- <dependency> <groupId>wang.moshu</groupId> <artifactId>smvc-framework</artifactId> 
-			<version>0.0.1</version> </dependency> -->
+		<dependency>
+			<groupId>twodragonlake</groupId>
+			<artifactId>twodragonlakemvc</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 		<dependency>
 			<groupId>twodragonlake</groupId>

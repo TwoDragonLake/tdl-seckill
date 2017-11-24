@@ -18,7 +18,7 @@
     http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
 	<!-- spring工具类声明（smvc中使用该工具类获取spring对象） -->
-	<bean class="wang.moshu.smvc.framework.util.SpringBeanUtils" />
+	<bean class="twodragonlake.twodragonlakemvc.framework.util.SpringBeanUtils" />
 	<!-- 引入jdbc配置文件 -->
 	<context:property-placeholder location="classpath:conf/*.properties" />
 

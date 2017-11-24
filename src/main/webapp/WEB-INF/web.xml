@@ -38,8 +38,8 @@
 	
 	<!-- smvc分发器声明，此处分发器会使用spring的注入 -->
 	<servlet>
-		<servlet-name>smvc-dispatch</servlet-name>
-		<servlet-class>wang.moshu.smvc.framework.DispatchServlet</servlet-class>
+		<servlet-name>twodragonlakemvc-dispatch</servlet-name>
+		<servlet-class>twodragonlake.twodragonlakemvc.framework.DispatchServlet</servlet-class>
 		<!-- 控制器扫描目录 -->
 		<init-param>
 			<param-name>scanPackage</param-name>
@@ -59,11 +59,11 @@
 	</servlet>
 	<!-- smvc分发路径定义，建议接口控制器使用/i/*路由，页面使用/p/*路由 -->
 	<servlet-mapping>
-		<servlet-name>smvc-dispatch</servlet-name>
+		<servlet-name>twodragonlakemvc-dispatch</servlet-name>
 		<url-pattern>/i/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>smvc-dispatch</servlet-name>
+		<servlet-name>twodragonlakemvc-dispatch</servlet-name>
 		<url-pattern>/p/*</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>

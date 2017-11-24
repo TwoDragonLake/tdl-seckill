@@ -9,12 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.twodragonlake.secondskill.common.exception.BusinessException;
-import com.twodragonlake.secondskill.common.interceptor.RequestInterceptor;
 import com.twodragonlake.secondskill.config.SystemConfig;
 import com.twodragonlake.secondskill.constant.CommonConstant;
 import com.twodragonlake.secondskill.util.IPUtil;
 import com.twodragonlake.secondskill.util.RedisUtil;
+
+import twodragonlake.twodragonlakemvc.framework.exception.BusinessException;
+import twodragonlake.twodragonlakemvc.framework.interceptor.RequestInterceptor;
 
 /**
  * 恶意IP检测拦截器（暂时未启用，对于企业网络，很有大的误杀可能，谨慎使用）

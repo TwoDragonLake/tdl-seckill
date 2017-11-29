@@ -6,19 +6,19 @@ var goods = {
     //封装秒杀相关ajax的url
     URL: {
         now: function () {
-            return '/miaosha/i/time/now';
+            return '/secondskill/i/time/now';
         },
         exposer: function (goodsId) {
-            return '/miaosha/i/' + goodsId + '/getMiaoshaGoodsLink';
+            return '/secondskill/i/' + goodsId + '/getMiaoshaGoodsLink';
         },
         execution: function () {
-            return '/miaosha/i/' +'miaosha';
+            return '/secondskill/i/' +'miaosha';
         },
         queryResult: function () { //查询秒杀结果
-            return '/miaosha/i/miaoshaResult';
+            return '/secondskill/i/secondskillResult';
         },
         order: function () { //下单
-            return '/miaosha/i/order';
+            return '/secondskill/i/order';
         },
     },
 
@@ -47,7 +47,7 @@ var goods = {
 					window.clearInterval(timerFlag); 
 					
 					// 下单token存起来，用于下单
-					$.cookie('token', data.data, {expires: 1, path: '/miaosha'});
+					$.cookie('token', data.data, {expires: 1, path: '/secondskill'});
 					
 					//var goodsBox = $('#goods-box');
 					node.before('您已经获得秒杀资格，有效期：3分钟，请立即下单');
@@ -116,7 +116,7 @@ var goods = {
                     console.log("inputPhone: " + inputPhone);
                     if (goods.validatePhone(inputPhone)) {
                         //电话写入cookie(7天过期)
-                        $.cookie('killPhone', inputPhone, {expires: 7, path: '/miaosha'});
+                        $.cookie('killPhone', inputPhone, {expires: 7, path: '/secondskill'});
                         //验证通过　　刷新页面
                         window.location.reload();
                     } else {
@@ -137,7 +137,7 @@ var goods = {
             //绑定登出事件
             $('#logout').click(function () {
             	//删除cookie
-            	$.cookie('killPhone', null, {expires: 0, path: '/miaosha'});
+            	$.cookie('killPhone', null, {expires: 0, path: '/secondskill'});
             	 //刷新页面
                 window.location.reload();
             });

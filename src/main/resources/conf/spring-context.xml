@@ -18,7 +18,7 @@
     http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
 	<!-- spring工具类声明（smvc中使用该工具类获取spring对象） -->
-	<bean class="twodragonlake.twodragonlakemvc.framework.util.SpringBeanUtils" />
+	<bean class="com.twodragonlake.twodragonlakemvc.framework.util.SpringBeanUtils" />
 	<!-- 引入jdbc配置文件 -->
 	<context:property-placeholder location="classpath:conf/*.properties" />
 
@@ -107,5 +107,5 @@
 	<import resource="classpath:conf/spring-mt.xml" />
 
 	<!-- 开启注解扫描 -->
-	<context:component-scan base-package="com.twodragonlake.secondskill" />
+	<context:component-scan base-package="com.twodragonlake" />
 </beans>

@@ -5,12 +5,11 @@ import java.text.MessageFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.twodragonlake.messagetrunk.MessageMonitor;
 import com.twodragonlake.secondskill.cache.base.CurrentLimiter;
 import com.twodragonlake.secondskill.constant.CommonConstant;
 import com.twodragonlake.secondskill.constant.MessageType;
 import com.twodragonlake.secondskill.dao.GoodsMapper;
-
-import twodragonlake.messagetrunk.MessageMonitor;
 
 /**
  * 商品购买限流器

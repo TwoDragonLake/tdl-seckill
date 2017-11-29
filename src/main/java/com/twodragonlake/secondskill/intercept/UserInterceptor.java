@@ -11,9 +11,8 @@ import org.springframework.stereotype.Component;
 import com.twodragonlake.secondskill.cache.UserBlackListCache;
 import com.twodragonlake.secondskill.config.SystemConfig;
 import com.twodragonlake.secondskill.util.RedisUtil;
-
-import twodragonlake.twodragonlakemvc.framework.exception.BusinessException;
-import twodragonlake.twodragonlakemvc.framework.interceptor.RequestInterceptor;
+import com.twodragonlake.twodragonlakemvc.framework.exception.BusinessException;
+import com.twodragonlake.twodragonlakemvc.framework.interceptor.RequestInterceptor;
 
 /**
  * 恶意用户检测拦截器

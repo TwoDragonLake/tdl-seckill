@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.twodragonlake.secondskill.cache.MiaoshaSuccessTokenCache;
 import com.twodragonlake.secondskill.intercept.UserInterceptor;
 import com.twodragonlake.secondskill.service.GoodsService;
-
-import twodragonlake.twodragonlakemvc.framework.annotation.RequestMapping;
-import twodragonlake.twodragonlakemvc.framework.enums.ReturnType;
-import twodragonlake.twodragonlakemvc.framework.interceptor.annotation.Intercept;
+import com.twodragonlake.twodragonlakemvc.framework.annotation.RequestMapping;
+import com.twodragonlake.twodragonlakemvc.framework.enums.ReturnType;
+import com.twodragonlake.twodragonlakemvc.framework.interceptor.annotation.Intercept;
 
 /**
  * 接口路由
@@ -42,7 +41,7 @@ public class MiaoshaInterface
 	 */
 	@Intercept(value = { UserInterceptor.class })
 	// @Intercept(value = { ExecuteTimeInterceptor.class })
-	@RequestMapping(value = "miaosha", returnType = ReturnType.JSON)
+	@RequestMapping(value = "secondskill", returnType = ReturnType.JSON)
 	public String miaosha(String mobile, String goodsRandomName)
 	{
 		Assert.notNull(goodsRandomName);
@@ -77,7 +76,7 @@ public class MiaoshaInterface
 	 * @param goodsId
 	 * @return
 	 */
-	@RequestMapping(value = "miaoshaResult", returnType = ReturnType.JSON)
+	@RequestMapping(value = "secondskillResult", returnType = ReturnType.JSON)
 	public String isMiaoshaSuccess(String mobile, String goodsRandomName)
 	{
 		// 直接取缓存查询是否有成功的记录生成

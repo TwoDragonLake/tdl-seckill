@@ -3,7 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
-	<display-name>miaosha</display-name>
+	<display-name>secondskill</display-name>
 
 	<!-- 读取spring配置文件 -->
 	<context-param>
@@ -39,11 +39,11 @@
 	<!-- smvc分发器声明，此处分发器会使用spring的注入 -->
 	<servlet>
 		<servlet-name>twodragonlakemvc-dispatch</servlet-name>
-		<servlet-class>twodragonlake.twodragonlakemvc.framework.DispatchServlet</servlet-class>
+		<servlet-class>com.twodragonlake.twodragonlakemvc.framework.DispatchServlet</servlet-class>
 		<!-- 控制器扫描目录 -->
 		<init-param>
 			<param-name>scanPackage</param-name>
-			<param-value>wang.moshu</param-value>
+			<param-value>com.twodragonlake.secondskill</param-value>
 		</init-param>
 		<!-- 视图层目录前缀 -->
 		<init-param>

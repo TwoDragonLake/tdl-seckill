@@ -9,6 +9,8 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.twodragonlake.messagetrunk.Message;
+import com.twodragonlake.messagetrunk.MessageTrunk;
 import com.twodragonlake.secondskill.cache.GoodsBuyCurrentLimiter;
 import com.twodragonlake.secondskill.cache.GoodsInfoCacheWorker;
 import com.twodragonlake.secondskill.cache.MiaoshaFinishCache;
@@ -18,10 +20,7 @@ import com.twodragonlake.secondskill.constant.MessageType;
 import com.twodragonlake.secondskill.dao.GoodsMapper;
 import com.twodragonlake.secondskill.model.Goods;
 import com.twodragonlake.secondskill.mq.message.MiaoshaRequestMessage;
-
-import twodragonlake.messagetrunk.Message;
-import twodragonlake.messagetrunk.MessageTrunk;
-import twodragonlake.twodragonlakemvc.framework.exception.BusinessException;
+import com.twodragonlake.twodragonlakemvc.framework.exception.BusinessException;
 
 @Service
 public class GoodsService

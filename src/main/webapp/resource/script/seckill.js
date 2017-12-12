@@ -12,7 +12,7 @@ var goods = {
             return '/secondskill/i/' + goodsId + '/getMiaoshaGoodsLink';
         },
         execution: function () {
-            return '/secondskill/i/' +'miaosha';
+            return '/secondskill/i/' +'secondskill';
         },
         queryResult: function () { //查询秒杀结果
             return '/secondskill/i/secondskillResult';

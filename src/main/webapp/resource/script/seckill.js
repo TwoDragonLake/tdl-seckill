@@ -12,7 +12,7 @@ var goods = {
             return '/secondskill/i/' + goodsId + '/getMiaoshaGoodsLink';
         },
         execution: function () {
-            return '/secondskill/i/' +'secondskill';
+            return '/secondskill/i/' + 'secondskill';
         },
         queryResult: function () { //查询秒杀结果
             return '/secondskill/i/secondskillResult';
@@ -30,67 +30,69 @@ var goods = {
             return false;
         }
     },
-    
+
     //轮训查询秒杀结果
-    queryResult: function (md5,goodsId,node){    	
-		$.ajax({
-			type: "post",
-			url: goods.URL.queryResult(),
-			dataType: "json", // 返回数据类型json
-			data: {
-            	mobile:$.cookie('killPhone'),
-            	goodsRandomName:md5
+    queryResult: function (md5, goodsId, node) {
+        $.ajax({
+            type: "post",
+            url: goods.URL.queryResult(),
+            dataType: "json", // 返回数据类型json
+            data: {
+                mobile: $.cookie('killPhone'),
+                goodsRandomName: md5
             },
-			success: function(data, status) {
-				if(status == "success" && data.code == 0 && data.data) {
-					//停止查询定时任务
-					window.clearInterval(timerFlag); 
-					
-					// 下单token存起来，用于下单
-					$.cookie('token', data.data, {expires: 1, path: '/secondskill'});
-					
-					//var goodsBox = $('#goods-box');
-					node.before('您已经获得秒杀资格，有效期：3分钟，请立即下单');
-					node.hide().html('<button class="btn btn-primary btn-lg" id="orderBtn">立即下单</button>');
-					
+            success: function (data, status) {
+                if (status == "success" && data.code == 0 && data.data) {
+                    //停止查询定时任务
+                    window.clearInterval(timerFlag);
+
+                    // 下单token存起来，用于下单
+                    $.cookie('token', data.data, {expires: 1, path: '/secondskill'});
+
+                    //var goodsBox = $('#goods-box');
+                    node.before('您已经获得秒杀资格，有效期：3分钟，请立即下单');
+                    node.hide().html('<button class="btn btn-primary btn-lg" id="orderBtn">立即下单</button>');
+
                     //绑定下单点击事件
                     $('#orderBtn').one('click', function () {
                         //执行秒杀请求
                         //1.先禁用按钮
                         $(this).addClass('disabled');//,<-$(this)===('#killBtn')->
                         //2.发送秒杀请求执行秒杀
-                		$.ajax({
-                			type: "post",
-                			url: goods.URL.order(),
-                			dataType: "json", // 返回数据类型json
-                			data: {
-	                        	mobile:$.cookie('killPhone'),
-	                        	goodsId:goodsId,
-	                        	token:$.cookie('token')
-	                        },
-                			success: function(data, status) {
-                				if(status == "success" && data.code == 0) {
-	                                node.html('<span class="label label-success">' + "下单成功，订单编号："+ data.data + '</span>');
-                				} else {
-                					node.html('<span class="label label-success">' + "下单失败" + '</span>'); 
-                					console.log('token不对: ' + data.data);
-                				}
-                			},
-                			error: function() {
-                				/* return false;、*/
-                			},
-                			complete: function() {}
-                		});
+                        $.ajax({
+                            type: "post",
+                            url: goods.URL.order(),
+                            dataType: "json", // 返回数据类型json
+                            data: {
+                                mobile: $.cookie('killPhone'),
+                                goodsId: goodsId,
+                                token: $.cookie('token')
+                            },
+                            success: function (data, status) {
+                                if (status == "success" && data.code == 0) {
+                                    node.html('<span class="label label-success">' + "下单成功，订单编号：" + data.data + '</span>');
+                                } else {
+                                    node.html('<span class="label label-success">' + "下单失败" + '</span>');
+                                    console.log('token不对: ' + data.data);
+                                }
+                            },
+                            error: function () {
+                                /* return false;、*/
+                            },
+                            complete: function () {
+                            }
+                        });
                     });
-                    
+
                     node.show();
-				}
-			},
-			error: function() {
-				/* return false;、*/
-			},
-			complete: function() {}
-		});
+                }
+            },
+            error: function () {
+                /* return false;、*/
+            },
+            complete: function () {
+            }
+        });
     },
 
     //详情页秒杀逻辑
@@ -131,103 +133,106 @@ var goods = {
             var startTime = params['startTime'];
             var endTime = params['endTime'];
             var goodsId = params['goodsId'];
-            
+
             //设置已经登陆用户
             $("#user").html($.cookie('killPhone'));
             //绑定登出事件
             $('#logout').click(function () {
-            	//删除cookie
-            	$.cookie('killPhone', null, {expires: 0, path: '/secondskill'});
-            	 //刷新页面
+                //删除cookie
+                $.cookie('killPhone', null, {expires: 0, path: '/secondskill'});
+                //刷新页面
                 window.location.reload();
             });
-            
-    		$.ajax({
-    			type: "get",
-    			url: goods.URL.now(),
-    			dataType: "json", // 返回数据类型json
-    			success: function(data, status) {
-    				if(status == "success" && data.code == 0) {
-						var nowTime = data.data;
-						goods.countDown(goodsId, nowTime, startTime, endTime);
-    				} else {
-    					 console.log('result: ' + result);
-    	                 alert('result: ' + result);
-    				}
-    			},
-    			error: function() {
-    				/* return false;、*/
-    			},
-    			complete: function() {}
-    		});
+
+            $.ajax({
+                type: "get",
+                url: goods.URL.now(),
+                dataType: "json", // 返回数据类型json
+                success: function (data, status) {
+                    if (status == "success" && data.code == 0) {
+                        var nowTime = data.data;
+                        goods.countDown(goodsId, nowTime, startTime, endTime);
+                    } else {
+                        console.log('result: ' + result);
+                        alert('result: ' + result);
+                    }
+                },
+                error: function () {
+                    /* return false;、*/
+                },
+                complete: function () {
+                }
+            });
         }
     },
 
     handlergoods: function (goodsId, node, nowTime, startTime, endTime) {
         //获取秒杀地址,控制显示器,执行秒杀
         node.hide().html('<button class="btn btn-primary btn-lg" id="killBtn">开始秒杀</button>');
-		$.ajax({
-			type: "post",
-			url: goods.URL.exposer(goodsId),
-			dataType: "json", // 返回数据类型json
-			success: function(data, status) {
-				if(status == "success" && data.code == 0) {
-	                var exposer = data.data;
-	                if (exposer) {
-	                    //开启秒杀
-	                    //获取秒杀地址
-	                    var md5 = exposer;
-	                    var killUrl = goods.URL.execution(goodsId, md5);
-	                    console.log("killUrl: " + killUrl);
-	                    //绑定一次点击事件
-	                    $('#killBtn').one('click', function () {
-	                        //执行秒杀请求
-	                        //1.先禁用按钮
-	                        $(this).addClass('disabled');//,<-$(this)===('#killBtn')->
-	                        //2.发送秒杀请求执行秒杀
-	                		$.ajax({
-	                			type: "post",
-	                			url: killUrl,
-	                			dataType: "json", // 返回数据类型json
-	                			data: {
-		                        	mobile:$.cookie('killPhone'),
-		                        	goodsRandomName:md5
-		                        },
-	                			success: function(data, status) {
-	                				if(status == "success" && data.code == 0) {
-		                                node.html('<span class="label label-success">' + "排队中，请稍等..." + '</span>');
-		                                timerFlag = window.setInterval(goods.queryResult(md5,goodsId,node),3000);
-	                				} else if(status == "success" && data.code == 1){
-	                					 console.log('result: ' + data.message);
-	                	                 alert('result: ' + data.message);
-	                	                 $(this).removeClass('disabled');
-	                				}
-	                			},
-	                			error: function() {
-	                				/* return false;、*/
-	                			},
-	                			complete: function() {}
-	                		});
-	                    });
-	                    node.show();
-	                } else {
-	                    //未开启秒杀(浏览器计时偏差)
-	                    var now = nowTime;
-	                    var start = startTime;
-	                    var end = endTime;
-	                    goods.countDown(goodsId, now, start, end);
-	                }
-				} else {
-					 console.log('result: ' + result);
-	                 alert('result: ' + result);
-				}
-				
-			},
-			error: function() {
-				/* return false;、*/
-			},
-			complete: function() {}
-		});
+        $.ajax({
+            type: "post",
+            url: goods.URL.exposer(goodsId),
+            dataType: "json", // 返回数据类型json
+            success: function (data, status) {
+                if (status == "success" && data.code == 0) {
+                    var exposer = data.data;
+                    if (exposer) {
+                        //开启秒杀
+                        //获取秒杀地址
+                        var md5 = exposer;
+                        var killUrl = goods.URL.execution(goodsId, md5);
+                        console.log("killUrl: " + killUrl);
+                        //绑定一次点击事件
+                        $('#killBtn').one('click', function () {
+                            //执行秒杀请求
+                            //1.先禁用按钮
+                            $(this).addClass('disabled');//,<-$(this)===('#killBtn')->
+                            //2.发送秒杀请求执行秒杀
+                            $.ajax({
+                                type: "post",
+                                url: killUrl,
+                                dataType: "json", // 返回数据类型json
+                                data: {
+                                    mobile: $.cookie('killPhone'),
+                                    goodsRandomName: md5
+                                },
+                                success: function (data, status) {
+                                    if (status == "success" && data.code == 0) {
+                                        node.html('<span class="label label-success">' + "排队中，请稍等..." + '</span>');
+                                        timerFlag = window.setInterval(goods.queryResult(md5, goodsId, node), 3000);
+                                    } else if (status == "success" && data.code == 1) {
+                                        console.log('result: ' + data.message);
+                                        alert('result: ' + data.message);
+                                        $(this).removeClass('disabled');
+                                    }
+                                },
+                                error: function () {
+                                    /* return false;、*/
+                                },
+                                complete: function () {
+                                }
+                            });
+                        });
+                        node.show();
+                    } else {
+                        //未开启秒杀(浏览器计时偏差)
+                        var now = nowTime;
+                        var start = startTime;
+                        var end = endTime;
+                        goods.countDown(goodsId, now, start, end);
+                    }
+                } else {
+                    console.log('result: ' + result);
+                    alert('result: ' + result);
+                }
+
+            },
+            error: function () {
+                /* return false;、*/
+            },
+            complete: function () {
+            }
+        });
 
     },
 

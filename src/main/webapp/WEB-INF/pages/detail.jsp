@@ -80,7 +80,7 @@
     $(function () {
         //使用EL表达式传入参数
         goods.detail.init({
-        	goodsId:${goods.id},
+            goodsId:${goods.id},
             startTime:${goods.startTime.time},//毫秒
             endTime:${goods.endTime.time}
         });

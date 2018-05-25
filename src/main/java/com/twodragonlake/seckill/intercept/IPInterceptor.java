@@ -33,7 +33,7 @@ import java.util.regex.Pattern;
 /**
  * 恶意IP检测拦截器（暂时未启用，对于企业网络，很有大的误杀可能，谨慎使用）.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/3/26 15:41
  */

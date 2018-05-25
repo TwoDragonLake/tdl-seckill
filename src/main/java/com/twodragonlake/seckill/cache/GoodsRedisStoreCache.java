@@ -27,7 +27,7 @@ import java.text.MessageFormat;
 /**
  * 商品redis库存量.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2016/4/12 11:34
  */

@@ -36,7 +36,7 @@ import java.util.Map;
 /**
  * GoodsService.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/2/3 21:21
  */

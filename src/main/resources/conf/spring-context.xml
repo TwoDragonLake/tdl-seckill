@@ -89,7 +89,7 @@
         <property name="port" value="${redis.init.port}"/>
         <property name="host" value="${redis.init.host}"/>
         <property name="timeout" value="${redis.init.timeout}"/>
-        <!--<property name="password" value="${redis.init.psw}" />-->
+        <property name="password" value="${redis.init.psw}" />
         <property name="DB" value="${redis.init.DB}"/>
     </bean>
 

@@ -31,7 +31,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * ConvertUtil.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/4/7 17:34
  */

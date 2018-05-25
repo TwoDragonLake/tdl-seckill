@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * RedisUtil.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/3/23 22:53
  */

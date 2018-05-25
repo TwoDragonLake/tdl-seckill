@@ -22,7 +22,7 @@ import com.twodragonlake.seckill.model.Order;
 /**
  * 订单映射.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/1/23 9:32
  */

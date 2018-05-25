@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * IP工具类.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/3/23 22:53
  */

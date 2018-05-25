@@ -24,9 +24,9 @@
         <property name="minIdle" value="${redis.mt.init.minIdle}"/>
         <property name="holed" value="${redis.mt.init.maxWaitMillis}"/>
         <property name="port" value="${redis.mt.init.port}"/>
-        <!--<property name="host" value="${redis.mt.init.host}" />-->
+        <property name="host" value="${redis.mt.init.host}" />
         <property name="timeout" value="${redis.mt.init.timeout}"/>
-        <!--<property name="password" value="${redis.mt.init.psw}" />-->
+        <property name="password" value="${redis.mt.init.psw}" />
         <property name="DB" value="${redis.mt.init.DB}"/>
     </bean>
 

@@ -19,7 +19,7 @@ package com.twodragonlake.seckill.constant;
 /**
  * 常量.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/3/16 12:02
  */

@@ -29,7 +29,7 @@ import java.text.MessageFormat;
 /**
  * 商品购买限流器.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/3/16 13:54
  */

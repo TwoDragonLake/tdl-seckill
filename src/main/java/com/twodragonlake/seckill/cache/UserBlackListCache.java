@@ -24,7 +24,7 @@ import org.springframework.stereotype.Component;
 /**
  * 黑名单缓存.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/4/18 10:06
  */

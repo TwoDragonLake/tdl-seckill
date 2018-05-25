@@ -32,7 +32,7 @@ import org.springframework.stereotype.Service;
 /**
  * 消息的处理器.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/2/3 21:21
  */

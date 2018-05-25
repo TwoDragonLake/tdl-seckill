@@ -26,7 +26,7 @@ import java.text.MessageFormat;
 /**
  * 秒杀结束缓存.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/4/18 10:23
  */

@@ -21,7 +21,7 @@ import java.util.Date;
 /**
  * Goods.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/3/26 15:41
  */

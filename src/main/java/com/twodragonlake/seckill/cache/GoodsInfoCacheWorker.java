@@ -28,7 +28,7 @@ import java.text.MessageFormat;
 /**
  * 获取商品信息缓存工作器.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2016/8/26 11:17
  */

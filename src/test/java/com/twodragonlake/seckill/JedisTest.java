@@ -48,7 +48,7 @@ public class JedisTest {
         poolConfig.setMinIdle(0);
         poolConfig.setMaxIdle(5);
         poolConfig.setMaxTotal(5);
-        final JedisPool pool = new JedisPool(poolConfig, "127.0.0.1", 6379, 2000, "weimob123", 8);
+        final JedisPool pool = new JedisPool(poolConfig, "192.168.31.200", 6379, 2000, "bossko", 8);
 
         List<Thread> tds = new ArrayList<Thread>();
         final Integer temp = 0;

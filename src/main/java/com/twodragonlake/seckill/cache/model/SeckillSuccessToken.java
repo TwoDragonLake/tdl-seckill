@@ -19,7 +19,7 @@ package com.twodragonlake.seckill.cache.model;
 /**
  * 秒杀成功token（用来下单做验证）.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/4/09 00:25
  */

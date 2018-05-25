@@ -24,7 +24,7 @@ import org.springframework.stereotype.Component;
 /**
  * 秒杀正在处理请求列表.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/4/20 12:01
  */

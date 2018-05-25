@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 /**
  * 系统config.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/4/18 10:06
  */

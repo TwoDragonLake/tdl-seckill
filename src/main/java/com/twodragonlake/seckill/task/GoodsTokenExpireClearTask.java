@@ -26,7 +26,7 @@ import java.util.Set;
 /**
  * 商品token过期清理任务，过期的token自动释放redis库存.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/4/9 11:47
  */

@@ -30,7 +30,7 @@ import java.util.UUID;
 /**
  * 秒杀获取到了下单资格token缓存.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/4/13 12:00
  */

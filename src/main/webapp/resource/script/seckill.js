@@ -6,19 +6,19 @@ var goods = {
     //封装秒杀相关ajax的url
     URL: {
         now: function () {
-            return '/secondskill/i/time/now';
+            return '/tdl-seckill/i/time/now';
         },
         exposer: function (goodsId) {
-            return '/secondskill/i/' + goodsId + '/getMiaoshaGoodsLink';
+            return '/tdl-seckill/i/' + goodsId + '/getMiaoshaGoodsLink';
         },
         execution: function () {
-            return '/secondskill/i/' + 'secondskill';
+            return '/tdl-seckill/i/' + 'secondskill';
         },
         queryResult: function () { //查询秒杀结果
-            return '/secondskill/i/secondskillResult';
+            return '/tdl-seckill/i/secondskillResult';
         },
         order: function () { //下单
-            return '/secondskill/i/order';
+            return '/tdl-seckill/i/order';
         },
     },
 

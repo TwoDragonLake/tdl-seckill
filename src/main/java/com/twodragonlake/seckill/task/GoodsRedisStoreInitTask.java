@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * 商品redis库存初始化任务.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/4/9 11:47
  */

@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 接口路由.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/1/23 9:32
  */

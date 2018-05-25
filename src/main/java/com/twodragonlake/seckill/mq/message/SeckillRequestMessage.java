@@ -21,7 +21,7 @@ import java.io.Serializable;
 /**
  * 秒杀请求消息.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/4/7 17:34
  */

@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * 恶意用户检测拦截器.
  *
- * @author : dingxiangyong
+ * @author : ceaserwang
  * @version : 1.0
  * @since : 2017/3/26 15:41
  */

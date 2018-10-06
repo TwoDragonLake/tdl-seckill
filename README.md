@@ -1,5 +1,9 @@
 ## tdl-seckill
- ![image](https://github.com/TwoDragonLake/tdl-seckill/blob/master/module.png)
+### 数据处理过程：
+- 校验库存
+- 减库存
+- 创建订单
+- 支付
 #### More  
 
 ### Contributing

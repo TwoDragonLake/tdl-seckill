@@ -19,7 +19,15 @@
             <artifactId>tdl-seckill-api</artifactId>
             <version>0.0.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.twodragonlake</groupId>
+            <artifactId>tdl-seckill-common</artifactId>
+            <version>0.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.twodragonlake.redis</groupId>
+            <artifactId>tdl-redis-access</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

@@ -1,13 +1,14 @@
 package com.tdl.biz.impl;
 
 import com.tdl.biz.SeckillOrderBiz;
+import com.tdl.common.enums.SeckillGoodsStatusEnum;
 import com.tdl.seckill.dao.SeckillGoodsDoMapper;
 import com.tdl.seckill.dao.SeckillOrderDoMapper;
 import com.tdl.seckill.dos.SeckillGoodsDo;
+import com.tdl.seckill.dos.SeckillGoodsDoExample;
 import com.tdl.seckill.dos.SeckillOrderDo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 /**
@@ -25,6 +26,9 @@ public class SeckillOrderBizImpl implements SeckillOrderBiz {
     @Autowired
     SeckillGoodsDoMapper seckillGoodsDoMapper;
 
+    @Autowired
+    private RedisLimit redisLimit;
+
     @Override
     public void subStockAndPushToMQ(Long goodId, Long userId) {
         //1、校验库存
@@ -34,7 +38,10 @@ public class SeckillOrderBizImpl implements SeckillOrderBiz {
         }
         //2、减库存
         seckillGoodsDo.setSale(seckillGoodsDo.getSale() + 1);
-        seckillGoodsDoMapper.updateByPrimaryKey(seckillGoodsDo);
+        int count =  seckillGoodsDoMapper.updateOptimistic(seckillGoodsDo);
+        if(count <= 0){
+            throw new RuntimeException("扣减库存失败");
+        }
 
         //3、创建订单
         SeckillOrderDo seckillOrderDo = new SeckillOrderDo();
@@ -46,6 +53,8 @@ public class SeckillOrderBizImpl implements SeckillOrderBiz {
 
     @Override
     public List<SeckillGoodsDo> getSeckillGoods() {
-        return null;
+        SeckillGoodsDoExample seckillGoodsDoExample = new SeckillGoodsDoExample();
+        seckillGoodsDoExample.createCriteria().andStatusEqualTo(SeckillGoodsStatusEnum.enabled.getCode());
+        return seckillGoodsDoMapper.selectByExample(seckillGoodsDoExample);
     }
 }

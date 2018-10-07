@@ -27,4 +27,7 @@ public interface SeckillGoodsDoMapper {
     int updateByPrimaryKeySelective(SeckillGoodsDo record);
 
     int updateByPrimaryKey(SeckillGoodsDo record);
+
+    int updateOptimistic(SeckillGoodsDo record);
+
 }

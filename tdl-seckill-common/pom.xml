@@ -12,9 +12,13 @@
     <groupId>com.twodragonlake</groupId>
     <artifactId>tdl-seckill-common</artifactId>
     <version>0.0.2</version>
+    <packaging>pom</packaging>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-redis</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

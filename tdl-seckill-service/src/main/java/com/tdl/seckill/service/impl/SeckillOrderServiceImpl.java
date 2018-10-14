@@ -1,10 +1,9 @@
-package com.tdl.service.impl;
+package com.tdl.seckill.service.impl;
 
-import com.tdl.api.SeckillOrderService;
+import com.tdl.seckill.api.SeckillOrderService;
 import com.tdl.seckill.dao.SeckillGoodsDoMapper;
 import com.tdl.seckill.dao.SeckillOrderDoMapper;
 import com.tdl.seckill.dos.SeckillGoodsDo;
-import com.tdl.seckill.dos.SeckillOrderDo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

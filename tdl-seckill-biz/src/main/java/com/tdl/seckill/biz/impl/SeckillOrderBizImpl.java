@@ -1,7 +1,8 @@
-package com.tdl.biz.impl;
+package com.tdl.seckill.biz.impl;
 
-import com.tdl.biz.SeckillOrderBiz;
-import com.tdl.common.enums.SeckillGoodsStatusEnum;
+import com.tdl.seckill.biz.SeckillOrderBiz;
+import com.tdl.seckill.common.enums.SeckillGoodsStatusEnum;
+import com.tdl.redis.access.RedisLimit;
 import com.tdl.seckill.dao.SeckillGoodsDoMapper;
 import com.tdl.seckill.dao.SeckillOrderDoMapper;
 import com.tdl.seckill.dos.SeckillGoodsDo;
@@ -30,7 +31,7 @@ public class SeckillOrderBizImpl implements SeckillOrderBiz {
     private RedisLimit redisLimit;
 
     @Override
-    public void subStockAndPushToMQ(Long goodId, Long userId) {
+    public Integer subStockAndPushToMQ(Long goodId, Long userId) {
         //1、校验库存
         SeckillGoodsDo seckillGoodsDo  = seckillGoodsDoMapper.selectByPrimaryKey(goodId);
         if(seckillGoodsDo.getSale().longValue()==seckillGoodsDo.getTotal().longValue()){
@@ -48,7 +49,7 @@ public class SeckillOrderBizImpl implements SeckillOrderBiz {
         seckillOrderDo.setGoodsId(seckillGoodsDo.getId());
         seckillOrderDo.setName(seckillGoodsDo.getName());
         seckillOrderDo.setUserId(userId);
-        seckillOrderDoMapper.insert(seckillOrderDo);
+        return seckillOrderDoMapper.insert(seckillOrderDo);
     }
 
     @Override

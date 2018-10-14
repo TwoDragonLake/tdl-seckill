@@ -17,7 +17,7 @@
                 driverClass="com.mysql.jdbc.Driver" password="operater" userId="root"/>
         <javaModelGenerator targetPackage="com.tdl.seckill.dos"
                             targetProject="src/main/java"/>
-        <sqlMapGenerator targetProject="src/main/resources/mapping" targetPackage="src/main/resources/mapping"/>
+        <sqlMapGenerator targetProject="src/main/resources/" targetPackage="mapping"/>
        <javaClientGenerator targetPackage="com.tdl.seckill.dao"
                              targetProject="src/main/java" type="XMLMAPPER"/>
 

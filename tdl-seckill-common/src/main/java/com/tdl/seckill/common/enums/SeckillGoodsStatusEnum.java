@@ -1,6 +1,4 @@
-package com.tdl.common.enums;
-
-import java.io.InputStream;
+package com.tdl.seckill.common.enums;
 
 /**
  * Description.

@@ -1,4 +1,4 @@
-package com.tdl.config.redis;
+package com.tdl.seckill.config.redis;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

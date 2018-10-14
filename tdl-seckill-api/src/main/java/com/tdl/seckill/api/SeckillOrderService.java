@@ -1,4 +1,4 @@
-package com.tdl.biz;
+package com.tdl.seckill.api;
 
 import com.tdl.seckill.dos.SeckillGoodsDo;
 
@@ -9,9 +9,9 @@ import java.util.List;
  *
  * @author : CeaserWang
  * @version : 1.0
- * @since : 2018/10/6 18:47
+ * @since : 2018/10/6 17:35
  */
-public interface SeckillOrderBiz {
+public interface SeckillOrderService {
     /**
      * 执行库存校验、减库存、创建订单操作
      * @param goodId

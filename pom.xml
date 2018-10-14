@@ -32,6 +32,7 @@
         <artifactId>tdl-base</artifactId>
         <version>0.0.2</version>
     </parent>
+    <groupId>com.twodragonlake</groupId>
     <artifactId>tdl-seckill</artifactId>
     <version>0.0.2</version>
     <name>tdl-seckill</name>
@@ -61,6 +62,12 @@
                 <artifactId>spring-boot-devtools</artifactId>
                 <version>${spring-boot-starter-parent.version}</version>
                 <optional>true</optional>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring-boot-starter-parent.version}</version>
             </dependency>
 
             <dependency>
@@ -125,15 +132,71 @@
                 <artifactId>tdl-redis-access</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring-jdbc.version}</version>
+            </dependency>
+
+            <!-- commons-->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons.io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons.lang.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <!-- fastjson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+
+            <!-- db 分页-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+            <!-- db 连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.1.0</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
     <!-- #################################################################### -->
     <!-- # 用户配置 -->
     <!-- #################################################################### -->
-    <profiles>
-        <!-- 开发环境 -->
-        <!--        <profile>
+    <!--
+<profiles>
+       <profile>
                     <id>dev</id>
                     <activation>
                         <activeByDefault>true</activeByDefault>
@@ -157,6 +220,6 @@
                         <log4j.level>ERROR</log4j.level>
                         <log4j.path>/data/applogs/seckill/seckill_logs/SeckillLog-1.0.log</log4j.path>
                     </properties>
-                </profile>-->
-    </profiles>
+                </profile>
+    </profiles>-->
 </project>

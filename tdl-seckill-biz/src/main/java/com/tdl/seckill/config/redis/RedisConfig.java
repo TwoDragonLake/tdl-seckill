@@ -1,4 +1,4 @@
-package com.tdl.config.redis;
+package com.tdl.seckill.config.redis;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;

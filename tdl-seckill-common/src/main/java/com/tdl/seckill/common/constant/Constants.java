@@ -1,4 +1,4 @@
-package com.tdl.common.constant;
+package com.tdl.seckill.common.constant;
 
 /**
  * Description.

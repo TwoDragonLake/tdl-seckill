@@ -4,6 +4,7 @@ import com.tdl.seckill.dos.SeckillGoodsDo;
 import com.tdl.seckill.dos.SeckillGoodsDoExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.spring.annotation.MapperScan;
 
 public interface SeckillGoodsDoMapper {
     long countByExample(SeckillGoodsDoExample example);
@@ -28,6 +29,5 @@ public interface SeckillGoodsDoMapper {
 
     int updateByPrimaryKey(SeckillGoodsDo record);
 
-    int updateOptimistic(SeckillGoodsDo record);
-
+    int updateOptimistic(SeckillGoodsDo seckillGoodsDo);
 }

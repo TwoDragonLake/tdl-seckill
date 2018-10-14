@@ -58,15 +58,6 @@
             </plugin>
 
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <!--<configuration>
-                    <overwrite>true</overwrite>
-                    <configurationFile>src/main/resources/MapperConfig.xml</configurationFile>
-                </configuration>-->
-            </plugin>
-
-            <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>1.3.7</version>

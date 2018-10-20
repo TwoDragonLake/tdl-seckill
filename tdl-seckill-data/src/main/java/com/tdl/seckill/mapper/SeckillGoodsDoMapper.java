@@ -1,10 +1,9 @@
-package com.tdl.seckill.dao;
+package com.tdl.seckill.mapper;
 
 import com.tdl.seckill.dos.SeckillGoodsDo;
 import com.tdl.seckill.dos.SeckillGoodsDoExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import org.mybatis.spring.annotation.MapperScan;
 
 public interface SeckillGoodsDoMapper {
     long countByExample(SeckillGoodsDoExample example);

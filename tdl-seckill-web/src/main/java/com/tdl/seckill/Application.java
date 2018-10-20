@@ -10,6 +10,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @SpringBootApplication
+//@ComponentScan(basePackages = "com.tdl.seckill")
+//@MapperScan("com.tdl.seckill.mapper")
 public class Application {
 
     public static void main(String[] args) {

@@ -1,6 +1,9 @@
 package com.tdl.seckill.config.redis;
 
+import com.tdl.redis.access.RedisLimit;
+import com.tdl.redis.constants.RedisToolsConstant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -8,6 +11,7 @@ import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.connection.RedisClusterConfiguration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -28,6 +32,11 @@ class RedisConfig extends CachingConfigurerSupport {
 
     @Autowired
     ClusterConfigurationProperties clusterConfigurationProperties;
+    @Autowired
+    private JedisConnectionFactory jedisConnectionFactory;
+
+    @Value("${redis.limit}")
+    private int limit;
 
     @Bean
     @Override
@@ -56,9 +65,9 @@ class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
     public JedisConnectionFactory redisConnectionFactory() {
-        JedisConnectionFactory factory = new JedisConnectionFactory();
-        factory.setHostName(clusterConfigurationProperties.getHost());
-        factory.setPort(clusterConfigurationProperties.getPort());
+        JedisConnectionFactory factory = new JedisConnectionFactory(new RedisClusterConfiguration(clusterConfigurationProperties.getNodes()));
+/*        factory.setHostName(clusterConfigurationProperties.getHost());
+        factory.setPort(clusterConfigurationProperties.getPort());*/
         factory.setPassword(clusterConfigurationProperties.getPassword());
         factory.setTimeout(clusterConfigurationProperties.getTimeout());
         //设置连接超时时间
@@ -80,6 +89,15 @@ class RedisConfig extends CachingConfigurerSupport {
         /*JedisConnectionFactory jc = (JedisConnectionFactory) factory;
         System.out.println(jc.getHostName());*/
         return template;
+    }
+
+    @Bean
+    public RedisLimit build() {
+        RedisLimit redisLimit = new RedisLimit.Builder(jedisConnectionFactory, RedisToolsConstant.SINGLE)
+                .limit(limit)
+                .build();
+
+        return redisLimit;
     }
 }
 

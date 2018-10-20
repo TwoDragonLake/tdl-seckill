@@ -1,4 +1,4 @@
-package com.tdl.seckill.dao;
+package com.tdl.seckill.mapper;
 
 import com.tdl.seckill.dos.SeckillOrderDo;
 import com.tdl.seckill.dos.SeckillOrderDoExample;

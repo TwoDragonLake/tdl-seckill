@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tdl.seckill.dao.SeckillGoodsDoMapper">
+<mapper namespace="com.tdl.seckill.mapper.SeckillGoodsDoMapper">
   <resultMap id="BaseResultMap" type="com.tdl.seckill.dos.SeckillGoodsDo">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />

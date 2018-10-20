@@ -6,7 +6,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Description.
@@ -25,7 +27,9 @@ public class IndexController {
     @Autowired
     SeckillOrderBiz seckillOrderBiz;
 
-    public Integer subStockAndPushToMQ(Long goodId, Long userId){
+    @RequestMapping("/subStockAndPushToMQ/{goodId}/{userId}")
+    @ResponseBody
+    public Integer subStockAndPushToMQ(@PathVariable Long goodId, @PathVariable Long userId){
         int updateCount = 0;
         try {
             updateCount =  seckillOrderBiz.subStockAndPushToMQ(goodId,userId);

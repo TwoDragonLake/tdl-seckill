@@ -76,11 +76,6 @@
                 <version>${mybatis-spring-boot-starter.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-aop</artifactId>
-                <version>${spring-boot-starter-parent.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql-connector-java.version}</version>
@@ -100,7 +95,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-tomcat</artifactId>
                 <version>${spring-boot-starter-parent.version}</version>
-                <scope>provided</scope>
             </dependency>
 
             <dependency>
@@ -222,4 +216,9 @@
                     </properties>
                 </profile>
     </profiles>-->
+<build>
+    <plugins>
+
+    </plugins>
+</build>
 </project>

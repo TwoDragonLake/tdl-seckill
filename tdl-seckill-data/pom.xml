@@ -11,7 +11,7 @@
     <groupId>com.twodragonlake</groupId>
     <artifactId>tdl-seckill-data</artifactId>
     <version>0.0.2</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -64,7 +64,7 @@
                 <configuration>
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>
-                    <configurationFile>src/main/resources/MapperConfig.xml</configurationFile>
+                    <configurationFile>src/main/resources/MapperConfig.xml_bak</configurationFile>
                 </configuration>
             </plugin>
         </plugins>

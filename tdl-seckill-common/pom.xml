@@ -12,7 +12,7 @@
     <groupId>com.twodragonlake</groupId>
     <artifactId>tdl-seckill-common</artifactId>
     <version>0.0.2</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>

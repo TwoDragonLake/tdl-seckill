@@ -28,6 +28,10 @@
             <groupId>com.twodragonlake.redis</groupId>
             <artifactId>tdl-redis-access</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

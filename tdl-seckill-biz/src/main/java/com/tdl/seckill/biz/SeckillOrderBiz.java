@@ -17,7 +17,7 @@ public interface SeckillOrderBiz {
      * @param goodId
      * @param userId
      */
-    Integer  subStockAndPushToMQ(Long goodId,Long userId);
+    void  subStockAndPushToMQ(Long goodId,Long userId);
 
     /**
      * 罗列商品列表

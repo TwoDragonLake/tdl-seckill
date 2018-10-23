@@ -93,7 +93,7 @@ class RedisConfig extends CachingConfigurerSupport {
 
     @Bean
     public RedisLimit build() {
-        RedisLimit redisLimit = new RedisLimit.Builder(jedisConnectionFactory, RedisToolsConstant.SINGLE)
+        RedisLimit redisLimit = new RedisLimit.Builder(jedisConnectionFactory, RedisToolsConstant.CLUSTER)
                 .limit(limit)
                 .build();
 

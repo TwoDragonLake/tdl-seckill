@@ -29,14 +29,12 @@ public class IndexController {
 
     @RequestMapping("/subStockAndPushToMQ/{goodId}/{userId}")
     @ResponseBody
-    public Integer subStockAndPushToMQ(@PathVariable Long goodId, @PathVariable Long userId){
-        int updateCount = 0;
+    public void subStockAndPushToMQ(@PathVariable Long goodId, @PathVariable Long userId){
         try {
-            updateCount =  seckillOrderBiz.subStockAndPushToMQ(goodId,userId);
+              seckillOrderBiz.subStockAndPushToMQ(goodId,userId);
         } catch (Exception e) {
             logger.error(" IndexController subStockAndPushToMQ {} ", e);
         }
-        return updateCount;
     }
 
 }

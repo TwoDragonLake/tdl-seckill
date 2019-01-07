@@ -24,4 +24,11 @@ public interface SeckillOrderBiz {
      * @return
      */
     List<SeckillGoodsDo> getSeckillGoods();
+
+    /**
+     * 创建订单
+     * @param seckillGoodsDo
+     * @param userId
+     */
+    void createOrder(SeckillGoodsDo seckillGoodsDo, Long userId);
 }

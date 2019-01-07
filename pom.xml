@@ -26,6 +26,7 @@
         <module>tdl-seckill-biz</module>
         <module>tdl-seckill-web</module>
         <module>tdl-seckill-common</module>
+        <module>tdl-seckill-consumer</module>
     </modules>
     <parent>
         <groupId>com.twodragonlake</groupId>
@@ -40,7 +41,7 @@
 
     <properties>
         <mybatis-generator-core.version>1.3.7</mybatis-generator-core.version>
-
+        <java.version>1.8</java.version>
     </properties>
 
 
@@ -180,6 +181,35 @@
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
                 <version>3.1.0</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
+<!--            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>${kafka-clients.version}</version>
+            </dependency>-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${spring-boot-starter-parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>${spring-kafka-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java-util</artifactId>
+                <version>3.3.1</version>
             </dependency>
 
         </dependencies>

@@ -26,9 +26,10 @@ public class SeckillOrderServiceImpl implements SeckillOrderService {
     SeckillGoodsDoMapper seckillGoodsDoMapper;
 
     @Override
-    public void subStockAndPushToMQ(Long goodId, Long userId) {
+    public void subStockAndPushToMQ(Long goodId,Long userId){
 
     }
+
 
     @Override
     public List<SeckillGoodsDo> getSeckillGoods() {

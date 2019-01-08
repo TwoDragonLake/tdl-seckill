@@ -11,7 +11,7 @@
     <groupId>com.twodragonlake</groupId>
     <artifactId>tdl-seckill-consumer</artifactId>
     <version>0.0.2</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -61,6 +61,16 @@
         <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+                <mainClass>com.tdl.seckill.consumer.web.Application</mainClass>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                </execution>
+            </executions>
         </plugin>
     </plugins>
     </build>

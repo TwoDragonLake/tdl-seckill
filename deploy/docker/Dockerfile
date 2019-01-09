@@ -4,10 +4,10 @@ MAINTAINER CeaserWang <ceaserwang@outlook.com>
 
 WORKDIR /home/app/
 
-COPY app-entrypoint.sh  .
+COPY docker-entrypoint.sh  .
 
 RUN mkdir /home/app/
 
 
 
-CMD ["/home/app/app-entrypoint.sh"]
+CMD ["/home/app/docker-entrypoint.sh"]

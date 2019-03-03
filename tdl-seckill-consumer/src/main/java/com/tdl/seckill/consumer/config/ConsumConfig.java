@@ -15,8 +15,12 @@ import org.springframework.context.annotation.Configuration;
  * @version : 1.0
  * @since : 2018/10/29 21:09
  */
+
 @Configuration
 public class ConsumConfig {
+    static{
+        System.out.println();
+    }
     private final static Logger LOGGER = LoggerFactory.getLogger(ConsumConfig.class);
     @Value("${consumer.broker.list}")
     private String brokerList;
@@ -31,7 +35,7 @@ public class ConsumConfig {
     private int threadNum;
 
 
-    @Bean(value = "consumerGroup")
+    @Bean
     public ConsumerGroup createConsumerGroup() {
         ConsumerGroup consumerGroup = new ConsumerGroup(threadNum, groupId, topic, brokerList);
         LOGGER.info("ConsumerGroup 初始化成功");

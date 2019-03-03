@@ -14,6 +14,8 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -26,10 +28,12 @@ import java.util.Properties;
  * @version : 1.0
  * @since : 2018/10/29 21:12
  */
+
 public class ConsumerTask implements Runnable {
     private static Logger LOGGER = LoggerFactory.getLogger(ConsumerTask.class);
 
 
+    @Autowired
     private SeckillOrderBiz seckillOrderBiz;
 
     private SpringContextUtil springContextUtil;

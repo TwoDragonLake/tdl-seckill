@@ -15,6 +15,8 @@ import com.tdl.seckill.dos.SeckillOrderDo;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.jedis.JedisClusterConnection;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -50,6 +52,9 @@ public class SeckillOrderBizImpl implements SeckillOrderBiz {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 
+    @Autowired
+    private JedisClusterConnection jedisClusterConnection;
+
     @Override
     public void subStockAndPushToMQ(Long goodId, Long userId) {
         //1、校验库存
@@ -72,7 +77,7 @@ public class SeckillOrderBizImpl implements SeckillOrderBiz {
         seckillOrderDo.setUserId(userId);
         return seckillOrderDoMapper.insert(seckillOrderDo);*/
 
-
+       // Object obj =  jedisClusterConnection.get(String.valueOf(Constants.STOCK_COUNT + goodId).getBytes());
         Long total  =  Long.parseLong(redisTemplate.opsForValue().get(Constants.STOCK_COUNT + goodId));
         Long sale  =  Long.parseLong(redisTemplate.opsForValue().get(Constants.STOCK_SALE + goodId));
 

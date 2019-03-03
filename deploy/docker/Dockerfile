@@ -2,7 +2,7 @@ FROM tdlceaserwang/jdk8:v1
 
 MAINTAINER CeaserWang <ceaserwang@outlook.com>
 
-WORKDIR /home/app/
+WORKDIR /data/app/
 
 COPY docker-entrypoint.sh  .
 

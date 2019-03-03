@@ -17,6 +17,7 @@ import java.util.concurrent.*;
  * @version : 1.0
  * @since : 2018/10/27 21:22
  */
+
 public class ConsumerGroup {
     private static Logger LOGGER = LoggerFactory.getLogger(ConsumerGroup.class);
     /**
@@ -28,11 +29,12 @@ public class ConsumerGroup {
 
     private static final ThreadFactory namedThradFactory = new ThreadFactoryBuilder().setNameFormat("pool-handler-%d").build();
 
+
     public ConsumerGroup(int threadNum, String groupId, String topic, String brokerList) {
         LOGGER.info("kafka parameter={},{},{},{}",threadNum,groupId,topic,brokerList);
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("pool-handler-%d").build();
 
-        threadPool = new ThreadPoolExecutor(threadNum,threadNum,0L,
+        threadPool = new ThreadPoolExecutor(threadNum,threadNum,30L,
                 TimeUnit.MILLISECONDS,new LinkedBlockingDeque<Runnable>(1024),
                 namedThradFactory,new ThreadPoolExecutor.AbortPolicy());
 
@@ -41,6 +43,15 @@ public class ConsumerGroup {
         for (int i = 0; i < threadNum; i++) {
             ConsumerTask consumerThread = new ConsumerTask(brokerList, groupId, topic);
             consumers.add(consumerThread);
+        }
+    }
+
+    /**
+     * 执行任务
+     */
+    public void execute() {
+        for (ConsumerTask runnable : consumers) {
+            threadPool.submit(runnable) ;
         }
     }
 
